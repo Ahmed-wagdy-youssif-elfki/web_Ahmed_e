@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المتجر كامل | Aura Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="scrolled">
+        <div class="container">
+            <nav>
+                <div class="logo">Aura</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="shop.html" class="active">المتجر</a></li>
+                    <li><a href="sales.html">التخفيضات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="cart.html" style="position: relative;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <div class="menu-toggle" id="menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 120px;">
+        <section class="container">
+            <div class="section-header">
+                <h2>تشكيلتنا الكاملة</h2>
+                <p>تصفحي أرقى التصاميم التي تجمع بين الكلاسيكية والحداثة.</p>
+            </div>
+
+            <div class="product-grid" id="shopGrid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="فستان صيفي مورد">
+                        <span class="product-badge">جديد</span>
+                        <div class="add-to-cart-overlay">
+                            <button class="add-btn" onclick="addToCart(1, 'فستان صيفي مورد', 350, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80')">
+                                <i class="fa-solid fa-plus"></i> إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">فستان صيفي مورد</h3>
+                        <p class="product-price">350 ر.س</p>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80" alt="طقم كلاسيك فاخر">
+                        <div class="add-to-cart-overlay">
+                            <button class="add-btn" onclick="addToCart(2, 'طقم كلاسيك فاخر', 580, 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80')">
+                                <i class="fa-solid fa-plus"></i> إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">طقم كلاسيك فاخر</h3>
+                        <p class="product-price">580 ر.س</p>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80" alt="بلوزة حرير ناعمة">
+                        <span class="product-badge" style="background-color: var(--danger); color: white;">خصم 20%</span>
+                        <div class="add-to-cart-overlay">
+                            <button class="add-btn" onclick="addToCart(3, 'بلوزة حرير ناعمة', 220, 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80')">
+                                <i class="fa-solid fa-plus"></i> إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">بلوزة حرير ناعمة</h3>
+                        <p class="product-price">220 ر.س</p>
+                    </div>
+                </article>
+
+                <!-- Add more products as needed -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Generic Footer (simplified for brevity here, same as index) -->
+    <footer style="background-color: var(--primary); color: var(--white); padding: 80px 0 40px; margin-top: 100px;">
+        <div class="container" style="text-align: center;">
+            <div class="logo" style="color: var(--white); margin-bottom: 20px;">Aura</div>
+            <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">&copy; 2026 Aura Fashion. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <div class="floating-container">
+        <a href="cart.html" class="floating-icon cart-floating">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="count">0</span>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

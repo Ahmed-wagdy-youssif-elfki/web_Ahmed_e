@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج | Aura Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="scrolled">
+        <div class="container">
+            <nav>
+                <div class="logo">Aura</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="shop.html">المتجر</a></li>
+                    <li><a href="sales.html">التخفيضات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="cart.html" style="position: relative;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <div class="menu-toggle" id="menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 150px;" class="container">
+        <div id="productDetail" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+            <!-- Placeholder for detail (will be populated by script.js if needed or hardcoded for sample) -->
+            <div class="product-gallery">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80" alt="Product" style="border-radius: 30px; width: 100%; box-shadow: var(--shadow);">
+            </div>
+            <div class="product-info-detail">
+                <h1 style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;">فستان صيفي مورد</h1>
+                <p style="font-size: 1.5rem; color: var(--accent); font-weight: 700; margin-bottom: 30px;">350 ر.س</p>
+                <p style="color: var(--text-light); margin-bottom: 40px; font-size: 1.1rem; line-height: 1.8;">هذا الفستان يجمع بين الراحة والأناقة في آن واحد. مصنوع من أرقى الخامات ليمنحكِ إطلالة صيفية جذابة وفريدة. متوفر بمقاسات مختلفة ليناسب جميع الأذواق.</p>
+                
+                <div style="margin-bottom: 40px;">
+                    <h4 style="margin-bottom: 15px;">المقاس</h4>
+                    <div style="display: flex; gap: 15px;">
+                        <span style="border: 1px solid var(--primary); padding: 5px 20px; border-radius: 50px; cursor: pointer;">S</span>
+                        <span style="border: 1px solid var(--accent); background: var(--accent); color: var(--primary); padding: 5px 20px; border-radius: 50px; font-weight: 700; cursor: pointer;">M</span>
+                        <span style="border: 1px solid var(--primary); padding: 5px 20px; border-radius: 50px; cursor: pointer;">L</span>
+                        <span style="border: 1px solid var(--primary); padding: 5px 20px; border-radius: 50px; cursor: pointer;">XL</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%; padding: 20px;" onclick="addToCart(1, 'فستان صيفي مورد', 350, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80')">إضافة إلى حقيبة التسوق</button>
+            </div>
+        </div>
+
+        <section style="margin-top: 100px; padding-bottom: 100px;">
+            <div class="section-header">
+                <h2>قد يعجبكِ أيضاً</h2>
+            </div>
+            <div class="product-grid">
+                <!-- Related Products (sampled) -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80" alt="طقم كلاسيك فاخر">
+                        <div class="add-to-cart-overlay">
+                            <button class="add-btn" onclick="addToCart(2, 'طقم كلاسيك فاخر', 580, 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80')">إضافة للسلة</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80" alt="بلوزة حرير ناعمة">
+                        <div class="add-to-cart-overlay">
+                            <button class="add-btn" onclick="addToCart(3, 'بلوزة حرير ناعمة', 220, 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80')">إضافة للسلة</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: var(--primary); color: var(--white); padding: 80px 0 40px;">
+        <div class="container" style="text-align: center;">
+            <div class="logo" style="color: var(--white); margin-bottom: 20px;">Aura</div>
+            <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">&copy; 2026 Aura Fashion. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

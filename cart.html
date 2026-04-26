@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حقيبة التسوق | Aura Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cart-item { display: grid; grid-template-columns: 120px 2fr 1fr 1fr auto; gap: 30px; align-items: center; padding: 25px 0; border-bottom: 1px solid rgba(27,48,34,0.05); }
+        .cart-item-img { width: 120px; height: 120px; border-radius: 15px; object-fit: cover; }
+        .cart-summary-box { background: var(--white); padding: 40px; border-radius: 30px; box-shadow: var(--shadow); position: sticky; top: 150px; }
+        .empty-cart .cart-summary-box { text-align: center; max-width: 400px; margin: 0 auto; }
+        
+        @media (max-width: 768px) {
+            .cart-item { display: flex; flex-direction: column; gap: 15px; padding: 15px 0; align-items: flex-start; }
+            .cart-item-img { width: 100px; height: 100px; align-self: center; }
+            .cart-item > div:nth-child(2) { text-align: center; width: 100%; }
+            .cart-item > div:nth-child(3) { font-size: 0.9rem; align-self: center; }
+            .cart-item > div:nth-child(4) { align-self: center; }
+            .cart-item > i { align-self: center; margin-top: 10px; }
+            .cart-summary-box { position: static; padding: 20px; margin-top: 30px; }
+            #cartLayout { display: flex; flex-direction: column; gap: 30px; }
+            #cartItemsList:empty + .cart-summary-box { margin-top: 0; }
+        }
+        
+        @media (max-width: 480px) {
+            .cart-item { gap: 10px; padding: 10px 0; }
+            .cart-item-img { width: 80px; height: 80px; }
+            .cart-item > div:nth-child(2) h4 { font-size: 1rem; }
+            .cart-item > div:nth-child(3) { font-size: 0.8rem; }
+            .cart-item > div:nth-child(4) button { width: 20px; height: 20px; font-size: 0.8rem; }
+            .cart-item > i { font-size: 0.9rem; }
+            #cartLayout { gap: 20px; }
+            main { padding-top: 120px; padding-bottom: 50px; }
+            .cart-summary-box { padding: 15px; }
+            .cart-summary-box h3 { font-size: 1.2rem; margin-bottom: 20px; }
+            .cart-summary-box div { font-size: 0.9rem; }
+            #emptyCartMsg { padding: 30px 10px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="scrolled">
+        <div class="container">
+            <nav>
+                <div class="logo">Aura</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="shop.html">المتجر</a></li>
+                    <li><a href="sales.html">التخفيضات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="cart.html" style="position: relative;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <div class="menu-toggle" id="menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 150px; padding-bottom: 100px;" class="container">
+        <div class="section-header">
+            <h2>حقيبة التسوق الخاصة بكِ</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 50px;" id="cartLayout">
+            <div id="cartItemsList">
+                <!-- Cart items will be loaded by JS -->
+                <p id="emptyCartMsg" style="text-align: center; color: var(--text-light); padding: 50px;">حقيبتكِ فارغة حالياً.. تطلعي لمجموعتنا الجديدة واختاري ما يناسبكِ.</p>
+            </div>
+            
+            <div class="cart-summary-box">
+                <h3 style="margin-bottom: 30px; border-bottom: 2px solid var(--accent); padding-bottom: 15px;">ملخص الطلب</h3>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    <span>المجموع الفرعي</span>
+                    <span id="subtotal">0 ر.س</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
+                    <span>رسوم الشحن</span>
+                    <span style="color: var(--accent); font-weight: 700;">مجاني</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 40px; font-size: 1.5rem; font-weight: 700; color: var(--primary);">
+                    <span>الإجمالي</span>
+                    <span id="totalPrice">0 ر.س</span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="alert('سيتم تحويلك لصفحة الدفع الآمن')">إتمام الطلب</button>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background-color: var(--primary); color: var(--white); padding: 80px 0 40px;">
+        <div class="container" style="text-align: center;">
+            <div class="logo" style="color: var(--white); margin-bottom: 20px;">Aura</div>
+            <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">&copy; 2026 Aura Fashion. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Additional Cart specialized JS
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsContainer = document.getElementById('cartItemsList');
+            const subtotalEl = document.getElementById('subtotal');
+            const totalEl = document.getElementById('totalPrice');
+            const emptyMsg = document.getElementById('emptyCartMsg');
+            
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            function renderCart() {
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '';
+                    cartItemsContainer.appendChild(emptyMsg);
+                    subtotalEl.textContent = '0 ر.س';
+                    totalEl.textContent = '0 ر.س';
+                    document.getElementById('cartLayout').classList.add('empty-cart');
+                    return;
+                }
+                
+                document.getElementById('cartLayout').classList.remove('empty-cart');
+                emptyMsg.remove();
+                cartItemsContainer.innerHTML = '';
+                let total = 0;
+                
+                cart.forEach((item, index) => {
+                    total += item.price * item.quantity;
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'cart-item';
+                    itemDiv.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+                        <div>
+                            <h4 style="color: var(--primary);">${item.title}</h4>
+                            <p style="color: var(--text-light); font-size: 0.8rem;">رقم المنتج: ACR-${1000 + item.id}</p>
+                        </div>
+                        <div style="font-weight: 700;">${item.price} ر.س</div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <button onclick="changeQty(${index}, -1)" style="width:25px; height:25px; border-radius:50%; border:1px solid #ccc; background:none; cursor:pointer;">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQty(${index}, 1)" style="width:25px; height:25px; border-radius:50%; border:1px solid #ccc; background:none; cursor:pointer;">+</button>
+                        </div>
+                        <i class="fa-solid fa-trash" style="color: var(--danger); cursor: pointer;" onclick="removeItem(${index})"></i>
+                    `;
+                    cartItemsContainer.appendChild(itemDiv);
+                });
+                
+                subtotalEl.textContent = total + ' ر.س';
+                totalEl.textContent = total + ' ر.س';
+            }
+            
+            window.changeQty = (index, delta) => {
+                cart[index].quantity += delta;
+                if (cart[index].quantity < 1) cart[index].quantity = 1;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload(); // Refresh to update head and list
+            };
+            
+            window.removeItem = (index) => {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload();
+            };
+            
+            renderCart();
+        });
+    </script>
+</body>
+</html>
